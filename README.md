@@ -7,7 +7,11 @@ Alfred workflow: https://github.com/s-mage/dict-to-flashcard/blob/main/card.alfr
 
 ### Demo
 
-./demo.mov
+
+
+https://github.com/user-attachments/assets/791e7ad4-ca4c-4dce-b9f0-b35505a7628c
+
+
 
 ### Prerequisites
 
