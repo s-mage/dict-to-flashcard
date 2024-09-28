@@ -1,0 +1,37 @@
+This file is me trying to make sense of the css classes used in the dictionary.
+
+attrs:
+<d:entry d:title=[my-word]> -- entry title
+<span d:prn="UK_IPA solitary" lexid="m-hr0000139.005" class="ph t_other"> -- transcription wrapper (without |)
+<span d:def="1" role="text" class="df t_standard"> -- definition wrapper
+
+classes:
+hg x_xh0 = heading container
+hw = heading
+
+pr = transcription container
+gp tg_pr = subheading text-muted (transcription |)
+ph t_other = subheading text-muted (transcription itself)
+
+sg = text-muted (word forms line) -- if you just take inner text of it it should be fine
+posg x_xdh = a wrapper
+se1 x_xd0 = a wrapper
+pos
+infg = (inflection group?)
+gp tg_infg = "(" or ")"
+sy = italic
+inf = bold
+gp = ","
+
+gg x_xd1 == padding-left text-muted -- companion words wrapper
+gp tg_gg = "[" or "]"
+
+msDict x_xd1 t_core = definitions wrapper
+df t_standard = definiton
+gp tg_df = "."
+
+subEntryBlock x_xo0 t_phrases -- phrases block
+subEntryBlock x_xo0 t_compounds -- compounds block
+eg = italic text-muted (inline example)
+
+subEntry -- one phrase or compount block
