@@ -7,7 +7,7 @@ Alfred workflow: https://github.com/s-mage/dict-to-flashcard/blob/main/card.alfr
 
 ### Demo
 
-![demo.mov](./demo.mov)
+./demo.mov
 
 ### Prerequisites
 
