@@ -5,6 +5,10 @@ Get definitions from Apple Dictionary and convert to Logseq flashcards.
 
 Alfred workflow: https://github.com/s-mage/dict-to-flashcard/blob/main/card.alfredworkflow
 
+### Demo
+
+![demo.mov](./demo_1727541671874_0.mov)
+
 ### Prerequisites
 
 * [rg](https://github.com/BurntSushi/ripgrep). `brew install ripgrep`
