@@ -3,12 +3,14 @@ dict-to-flashcard
 
 Get definitions from Apple Dictionary and convert to Logseq flashcards.
 
+Alfred workflow: https://github.com/s-mage/dict-to-flashcard/blob/main/card.alfredworkflow
+
 ### Prerequisites
 
 * [rg](https://github.com/BurntSushi/ripgrep). `brew install ripgrep`
 * [apple-peeler](https://github.com/solarmist/apple-peeler). `pip install apple-peeler`
 
-Setup: extract XML from the dictionaries.
+### Setup: extract XML from the dictionaries.
 
 1. Read README of apple-peeler, but basically
 
