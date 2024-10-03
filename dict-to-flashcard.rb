@@ -4,7 +4,7 @@ require "nokogiri"
 require "open3"
 
 # TODO solve inflection
-word = ARGV[0]
+word = ARGV[0].unicode_normalize
 input_file = ENV["PATH_TO_XML"]
 output_file = ENV["OUTPUT_FILE"]
 xml, _ = Open3.capture2("rg 'd:title=\"#{word}\"' #{input_file} --max-count=1 --no-line-number")
@@ -36,6 +36,8 @@ def inflection(node)
     raw
   end
 end
+
+# https://github.com/sparklemotion/nokogiri/wiki/Cheat-sheet
 
 heading = doc.css(".hg.x_xh0").first
 inflections_line = doc.css(".posg.x_xdh").first
