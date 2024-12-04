@@ -7,7 +7,7 @@ require "open3"
 word = ARGV[0].unicode_normalize
 input_file = ENV["PATH_TO_XML"]
 output_file = ENV["OUTPUT_FILE"]
-xml, _ = Open3.capture2("rg 'd:title=\"#{word}\"' #{input_file} --max-count=1 --no-line-number")
+xml, _ = Open3.capture2("rg 'd:title=\"#{word}\"' #{input_file} --no-line-number")
 doc = Nokogiri::XML.fragment(xml)
 
 CASES = {
@@ -50,7 +50,7 @@ inflections = inflections_line.css(".infg").first
 definitions = doc.css(".se2.x_xd1.hasSn").map { |x| x.text.strip }.join("\n  ")
 definitions2 = doc.css(".msDict.x_xd1.t_core").map do |wrapper|
   wrapper.css(".gp.tg_eg").remove
-  definition = wrapper.css(".df.t_standard").first&.text.strip
+  definition = wrapper.css(".df.t_standard").first&.text&.strip || ""
   synonim = wrapper.css(".xrg").map { |x| x.text.strip }.join(", ")
   examples = wrapper.css(".eg").map { |x| "*#{x.text.strip}*" }.join(" | ")
 
@@ -64,13 +64,12 @@ phrases = phrases_wrapper.css(".subEntry").map { |x| x.text.strip }.join("\n  ")
 
 result = "
 - ### {{cloze #{heading.text}}}
-  {{cloze #{GENDERS[gender] || gender}#{inflections}}}
+  {{cloze #{[GENDERS[gender] || gender, inflections].compact.join(" ")}}}
 
   Definitions
 
   #{definitions}#{definitions2}
-
-  #{phrases.empty? ? "" : "Phrases\n\n  " + phrases}
+  #{phrases.empty? ? "" : "\nPhrases\n\n  " + phrases}
   #card
 "
 
