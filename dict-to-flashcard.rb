@@ -47,7 +47,7 @@ inflections = inflections_line.css(".infg").first
     container.css("> :not(.pr)").map { |x| inflection(x) }.join("").gsub(",", ", ") if container
   end
 
-definitions = doc.css(".se2.x_xd1.hasSn").map { |x| x.text.strip }.join("\n  ")
+definitions = doc.css(".se2.x_xd1.hasSn").map { |x| x.text.strip }.join("\n  ").gsub(/(\d+)/, "\\1\.")
 definitions2 = doc.css(".msDict.x_xd1.t_core").map do |wrapper|
   wrapper.css(".gp.tg_eg").remove
   definition = wrapper.css(".df.t_standard").first&.text&.strip || ""
@@ -55,7 +55,7 @@ definitions2 = doc.css(".msDict.x_xd1.t_core").map do |wrapper|
   examples = wrapper.css(".eg").map { |x| "*#{x.text.strip}*" }.join(" | ")
 
   definition + " " + synonim + " " + examples
-end.join("\n  ")
+end.join("\n  ").gsub(/(\d+)/, "\\1\.")
 
 # TODO: exclude .pr
 # TODO: explanations in italic
