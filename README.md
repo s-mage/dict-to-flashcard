@@ -1,7 +1,7 @@
 dict-to-flashcard
 -----------------
 
-Get definitions from Apple Dictionary and convert to Logseq flashcards.
+Get definitions from Apple Dictionary and convert to Logseq flashcards. More in a blogpost: https://smagin.fyi/posts/dict-to-flashcard/
 
 Alfred workflow: https://github.com/s-mage/dict-to-flashcard/blob/main/card.alfredworkflow
 
